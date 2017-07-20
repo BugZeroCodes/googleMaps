@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GmapAPI</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type='text/css'>
+      td {
+        border: 5px groove #ffaadd;
+      }
+      th {
+        border: 5px groove red;
+        border-top: 5px groove red;
+      }
+      .btn.btn-primary {
+        background-image: linear-gradient(navy, blue);
+      }
+      .btn.btn-success {
+        background-image: linear-gradient(lime, green);
+      }
+      .btn.btn-warning {
+        background-image: linear-gradient(orange, red);
+      }
+      .btn.btn-danger {
+        background-image: linear-gradient(crimson, red);
+      }
+      #map-canvas {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <% if notice != nil %>
+      <p id="notice" class='alert alert-info'><%= notice %></p>
+    <% end %>
+    <%= yield %>
+    <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api_key'] %>">
+     </script>
+  </body>
+</html>

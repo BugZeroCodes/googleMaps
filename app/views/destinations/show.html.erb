@@ -1,0 +1,29 @@
+<p>
+  <strong>City:</strong>
+  <%= @destination.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @destination.country %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @destination.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @destination.longitude %>
+</p>
+<div id='map-canvas'></div>
+
+<%= javascript_tag do %>
+  var latitude = '<%= j @destination.latitude.to_s %>';
+  var longitude = '<%= j @destination.longitude.to_s %>';
+  var address = '<%= j @destination.city %>';
+<% end %>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
